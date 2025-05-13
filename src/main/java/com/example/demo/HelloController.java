@@ -1,12 +1,21 @@
 package com.example.demo;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Button;
 
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.MouseButton;
+
+enum Calculo {
+    SUM, REST, MULT, DIV, NULL,
+}
 public class HelloController {
-    String input = "";
-    int num1 = 0, num2 = 0;
+    String input = "", historial = "", resultado = "";
+    float num1 = 0, num2 = 0;
+    Calculo operacion = Calculo.NULL;
 
     @FXML
     private Label historyLabel;
@@ -20,67 +29,45 @@ public class HelloController {
     }
 
     @FXML
-    void onBtn1_Clicked() {
-        ConcatenarEntrada("1");
-    }
+    protected void onPressedBotonNum( MouseEvent event){
+        if(event.getButton() == MouseButton.PRIMARY)
+        {
+//            if (operacion != Calculo.NULL && resultado.isEmpty())
+//            {
+//                ResetInput();
+//                //operacion = Calculo.NULL;
+//                System.out.println("Reiniciando input");
+//            }
+            //Reiniciar();
 
-    @FXML
-    void onBtn2_Clicked() {
-        ConcatenarEntrada("2");
-    }
+            if (!resultado.isEmpty() && operacion != Calculo.NULL){
+                num1 = Float.parseFloat(resultado);
+//                GuardarHistorial(resultado +" + ");
+            }
 
-    @FXML
-    void onBtn3_Clicked() {
-        ConcatenarEntrada("3");
-    }
-
-    @FXML
-    void onBtn4_Clicked() {
-        ConcatenarEntrada("4");
-
-    }
-
-    @FXML
-    void onBtn5_Clicked() {
-        ConcatenarEntrada("5");
-    }
-
-    @FXML
-    void onBtn6_Clicked() {
-        txt_input.setText("6");
-    }
-
-    @FXML
-    void onBtn7_Clicked() {
-        txt_input.setText("7");
-    }
-
-    @FXML
-    void onBtn8_Clicked() {
-        txt_input.setText("8");
-    }
-
-    @FXML
-    void onBtn9_Clicked() {
-        txt_input.setText("9");
-    }
-
-    @FXML
-    void onBtn0_Clicked() {
-        txt_input.setText("0");
+            Button btn = (Button) event.getSource();
+            ConcatenarEntrada(btn.getText());
+        }
     }
 
     @FXML
     void onBtnDel_Clicked() {
-
+        if (!input.isEmpty()){
+            input = input.substring(0, input.length() -1);
+            txt_input.setText(input);
+        }
     }
 
     @FXML
     void onBtnSum_Clicked() {
-        if( num1 == 0) {
-            num1 = Integer.parseInt(input);
-            ResetInput();
-        }
+        operacion = Calculo.SUM;
+
+        if (input.isEmpty() )
+            return;
+
+        GuardarEntrada();
+        if ( num1 != 0 && num2 != 0)
+            LanzarCalculo();
 
     }
 
@@ -101,14 +88,58 @@ public class HelloController {
 
     @FXML
     void onBtnDecimal_Clicked() {
-
+        ConcatenarEntrada(",");
     }
 
     @FXML
     void onBtnCalc_Clicked() {
-        num2 = Integer.parseInt(input);
-        System.out.println(num1 + " " + num2);
-        txt_input.setText(Sumar( num1, num2));
+        if (input.isEmpty())
+            return;
+
+        GuardarEntrada();
+        ActualizarHistorial(" = ");
+        LanzarCalculo();
+
+    }
+
+    private void LanzarCalculo(){
+        switch (operacion){
+            case SUM:
+                Sumar( num1, num2);
+                break;
+            case REST:
+                break;
+            default:
+                break;
+
+        }
+
+        operacion = Calculo.NULL;
+        System.out.println("Calculo hecho: " +operacion + ". num1= " + num1 +", num2= " + num2 + " y res= " + resultado);
+        txt_input.setText(resultado);
+        //Reiniciar();
+    }
+
+    private void Sumar(float num1, float num2){
+        System.out.println("SUMANDO " + num1 + " + " + num2);
+        float res = num1 + num2;
+        resultado = String.valueOf(res);
+        Reiniciar();
+        ActualizarHistorial(resultado);
+    }
+
+    private void ResetInput(){
+        input = "";
+    }
+
+    private void Reiniciar(){
+        if (!resultado.isEmpty()) {
+            num2 = 0;
+            num1 = 0;
+            ResetInput();
+            ReiniciarHistorial();
+            System.out.println("Reiniciando");
+        }
     }
 
     private void ConcatenarEntrada(String newInput){
@@ -116,13 +147,38 @@ public class HelloController {
         txt_input.setText(input);
     }
 
-    private String Sumar(int num1, int num2){
-        int res = num1 + num2;
-        return String.valueOf(res);
+    private void GuardarEntrada() {
+        String input_normalizado = input.replace(",", ".");
+
+        if ( num1 == 0){
+            ActualizarHistorial(input);
+            num1 = Float.parseFloat(input_normalizado);
+        }
+        else if( num2 == 0 ) {
+            num2 = Float.parseFloat(input_normalizado);
+        }
+
+        ResetInput();
     }
 
-    private void ResetInput(){
-        input = "";
-        txt_input.setText(input);
+    private void ActualizarHistorial(String str) {
+        historial += str;
+        if ( num1 == 0){
+            switch (operacion){
+                case SUM:
+                    historial += " + ";
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        MostrarHistorial();
+    }
+
+    private void MostrarHistorial(){ historyLabel.setText(historial);}
+
+    private void ReiniciarHistorial(){
+        historial = "";
     }
 }

@@ -22,7 +22,7 @@
       <VBox.margin>
          <Insets left="100.0" />
       </VBox.margin></Label>
-   <TextField fx:id="txt_input" alignment="CENTER_RIGHT" editable="false" prefHeight="55.0" prefWidth="280.0" text="1 + 2">
+   <TextField fx:id="txt_input" alignment="CENTER_RIGHT" editable="false" prefHeight="55.0" prefWidth="280.0" text="">
       <VBox.margin>
          <Insets />
       </VBox.margin>
@@ -47,17 +47,17 @@
             <RowConstraints maxHeight="1.7976931348623157E308" minHeight="40.0" vgrow="ALWAYS" />
             <RowConstraints maxHeight="1.7976931348623157E308" minHeight="40.0" vgrow="ALWAYS" />
         </rowConstraints>
-        <Button fx:id="btn_1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onBtn1_Clicked" text="1" GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <Button fx:id="btn_1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onPressedBotonNum" text="1" GridPane.columnIndex="0" GridPane.rowIndex="0">
            <GridPane.margin>
                <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
            </GridPane.margin>
         </Button>
-        <Button fx:id="btn_2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onBtn2_Clicked" text="2" GridPane.columnIndex="1" GridPane.rowIndex="0">
+        <Button fx:id="btn_2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onPressedBotonNum" text="2" GridPane.columnIndex="1" GridPane.rowIndex="0">
             <GridPane.margin>
                 <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
             </GridPane.margin>
         </Button>
-        <Button fx:id="btn_3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="3" onMouseClicked="#onBtn3_Clicked" GridPane.columnIndex="2" GridPane.rowIndex="0">
+        <Button fx:id="btn_3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="3" onMouseClicked="#onPressedBotonNum" GridPane.columnIndex="2" GridPane.rowIndex="0">
             <GridPane.margin>
                 <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
             </GridPane.margin>
@@ -67,17 +67,17 @@
                 <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
             </GridPane.margin>
         </Button>
-        <Button fx:id="btn_4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="4" onMouseClicked="#onBtn4_Clicked" GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <Button fx:id="btn_4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="4" onMouseClicked="#onPressedBotonNum" GridPane.columnIndex="0" GridPane.rowIndex="1">
             <GridPane.margin>
                 <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
             </GridPane.margin>
         </Button>
-        <Button fx:id="btn_5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onBtn5_Clicked" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <Button fx:id="btn_5" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onPressedBotonNum" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <GridPane.margin>
                 <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
             </GridPane.margin>
         </Button>
-        <Button fx:id="btn_6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onBtn6_Clicked" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1">
+        <Button fx:id="btn_6" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onPressedBotonNum" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1">
             <GridPane.margin>
                 <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
             </GridPane.margin>
@@ -87,17 +87,17 @@
                 <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
             </GridPane.margin>
         </Button>
-        <Button fx:id="btn_7" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onBtn7_Clicked" text="7" GridPane.columnIndex="0" GridPane.rowIndex="2">
+        <Button fx:id="btn_7" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onPressedBotonNum" text="7" GridPane.columnIndex="0" GridPane.rowIndex="2">
             <GridPane.margin>
                 <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
             </GridPane.margin>
         </Button>
-        <Button fx:id="btn_8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onBtn8_Clicked" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <Button fx:id="btn_8" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onPressedBotonNum" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
             <GridPane.margin>
                 <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
             </GridPane.margin>
         </Button>
-        <Button fx:id="btn_9" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onBtn9_Clicked" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2">
+        <Button fx:id="btn_9" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onPressedBotonNum" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2">
             <GridPane.margin>
                 <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
             </GridPane.margin>
@@ -112,7 +112,7 @@
                 <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
             </GridPane.margin>
         </Button>
-        <Button fx:id="btn_0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onBtn0_Clicked" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <Button fx:id="btn_0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onPressedBotonNum" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3">
             <GridPane.margin>
                 <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
             </GridPane.margin>
