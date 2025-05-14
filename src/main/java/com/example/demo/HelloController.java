@@ -32,19 +32,10 @@ public class HelloController {
     protected void onPressedBotonNum( MouseEvent event){
         if(event.getButton() == MouseButton.PRIMARY)
         {
-//            if (operacion != Calculo.NULL && resultado.isEmpty())
-//            {
-//                ResetInput();
-//                //operacion = Calculo.NULL;
-//                System.out.println("Reiniciando input");
-//            }
-            //Reiniciar();
-
-            if (!resultado.isEmpty() && operacion != Calculo.NULL){
-                num1 = Float.parseFloat(resultado);
-//                GuardarHistorial(resultado +" + ");
+            if ( operacion == Calculo.NULL && !resultado.isEmpty())
+            {
+                Reiniciar();
             }
-
             Button btn = (Button) event.getSource();
             ConcatenarEntrada(btn.getText());
         }
@@ -64,10 +55,23 @@ public class HelloController {
 
         if (input.isEmpty() )
             return;
+//        if (!resultado.isEmpty())
+//        {
+//            num1 = Float.parseFloat(resultado);
+//            num2 = 0;
+//        }
 
         GuardarEntrada();
-        if ( num1 != 0 && num2 != 0)
+        // La primera vez que hacemos una operacion y aun tenemos los dos numeros sin escoger, pinta la operacion
+        if (num2 == 0)
+            ActualizarHistorial(" + ");
+
+        if ( num1 != 0 && num2 != 0) {
+//        if(!resultado.isEmpty()){
             LanzarCalculo();
+            ReiniciarHistorial();
+            ActualizarHistorial(resultado + " +");
+        }
 
     }
 
@@ -96,16 +100,24 @@ public class HelloController {
         if (input.isEmpty())
             return;
 
-        GuardarEntrada();
-        ActualizarHistorial(" = ");
-        LanzarCalculo();
+//        if (!resultado.isEmpty())
+//        {
+//            num1 = Float.parseFloat(resultado);
+//            num2 = 0;
+//        }
 
+        GuardarEntrada();
+        LanzarCalculo();
+        ActualizarHistorial( num2 + " = ");
+        ReiniciarHistorial();
+        operacion = Calculo.NULL;
     }
 
     private void LanzarCalculo(){
         switch (operacion){
             case SUM:
                 Sumar( num1, num2);
+                //ActualizarHistorial(resultado + " +");
                 break;
             case REST:
                 break;
@@ -114,18 +126,21 @@ public class HelloController {
 
         }
 
-        operacion = Calculo.NULL;
         System.out.println("Calculo hecho: " +operacion + ". num1= " + num1 +", num2= " + num2 + " y res= " + resultado);
         txt_input.setText(resultado);
-        //Reiniciar();
+
     }
 
     private void Sumar(float num1, float num2){
         System.out.println("SUMANDO " + num1 + " + " + num2);
         float res = num1 + num2;
         resultado = String.valueOf(res);
-        Reiniciar();
-        ActualizarHistorial(resultado);
+    }
+
+    private void Restar(float num1, float num2){
+        System.out.println("Restando: " + num1 + ", " + num2);
+        float res = num1 - num2;
+        resultado = String.valueOf(res);
     }
 
     private void ResetInput(){
@@ -134,11 +149,13 @@ public class HelloController {
 
     private void Reiniciar(){
         if (!resultado.isEmpty()) {
-            num2 = 0;
             num1 = 0;
+            num2 = 0;
+            resultado = "";
             ResetInput();
             ReiniciarHistorial();
-            System.out.println("Reiniciando");
+            MostrarHistorial();
+            System.out.println("Reiniciando Todo");
         }
     }
 
@@ -150,6 +167,11 @@ public class HelloController {
     private void GuardarEntrada() {
         String input_normalizado = input.replace(",", ".");
 
+        if (!resultado.isEmpty()){
+            num1 = Float.parseFloat(resultado);
+            num2 = 0;
+        }
+
         if ( num1 == 0){
             ActualizarHistorial(input);
             num1 = Float.parseFloat(input_normalizado);
@@ -157,22 +179,21 @@ public class HelloController {
         else if( num2 == 0 ) {
             num2 = Float.parseFloat(input_normalizado);
         }
-
+        System.out.println(num1 + ", "+num2);
         ResetInput();
     }
 
     private void ActualizarHistorial(String str) {
         historial += str;
-        if ( num1 == 0){
-            switch (operacion){
-                case SUM:
-                    historial += " + ";
-                    break;
-                default:
-                    break;
-            }
-        }
-
+//        if ( num1 == 0){
+//            switch (operacion){
+//                case SUM:
+//                    historial += " + ";
+//                    break;
+//                default:
+//                    break;
+//            }
+//        }
         MostrarHistorial();
     }
 
