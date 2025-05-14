@@ -10,7 +10,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="450.0" minWidth="380.0" prefHeight="450.0" prefWidth="320.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
+<?import javafx.scene.control.ToggleButton?>
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="450.0" minWidth="380.0" prefHeight="450.0" prefWidth="320.0"
+      xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HelloController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -127,7 +129,62 @@
                 <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
             </GridPane.margin>
         </Button>
-        <Button fx:id="btn_res" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onBtnCalc_Clicked" text="=" GridPane.columnIndex="3" GridPane.rowIndex="4">
+        <Button fx:id="btn_calc" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onBtnCalc_Clicked" text="=" GridPane.columnIndex="3" GridPane.rowIndex="4">
+            <GridPane.margin>
+                <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+            </GridPane.margin>
+        </Button>
+        <Button fx:id="btn_potenciar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onBtnPotenciar_Clicked" text="^" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <GridPane.margin>
+                <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+            </GridPane.margin>
+        </Button>
+        <Button fx:id="btn_raiz" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onBtnRaiz_Clicked" text="√" GridPane.columnIndex="0" GridPane.rowIndex="4">
+            <GridPane.margin>
+                <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+            </GridPane.margin>
+        </Button>
+        <Button fx:id="btn_porcentaje" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onBtnPorcentaje_Clicked" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <GridPane.margin>
+                <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+            </GridPane.margin>
+        </Button>
+        <ToggleButton fx:id="btnModoAngulo" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onBtnPorcentaje_Clicked" text="Grados" GridPane.columnIndex="0" GridPane.rowIndex="5">
+            <GridPane.margin>
+                <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+            </GridPane.margin>
+        </ToggleButton>
+        <Button fx:id="btn_seno" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onBtnSeno_Clicked" text="Sen" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <GridPane.margin>
+                <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+            </GridPane.margin>
+        </Button>
+        <Button fx:id="btn_coseno" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onBtnCoseno_Clicked" text="Cos" GridPane.columnIndex="2" GridPane.rowIndex="5">
+            <GridPane.margin>
+                <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+            </GridPane.margin>
+        </Button>
+        <Button fx:id="btn_tangente" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onBtnTan_Clicked" text="Tan" GridPane.columnIndex="3" GridPane.rowIndex="5">
+            <GridPane.margin>
+                <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+            </GridPane.margin>
+        </Button>
+        <Button fx:id="btn_arcoseno" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onBtnAsin_Clicked" text="asin" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <GridPane.margin>
+                <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+            </GridPane.margin>
+        </Button>
+        <Button fx:id="btn_arcocoseno" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onBtnAcos_Clicked" text="acos" GridPane.columnIndex="2" GridPane.rowIndex="6">
+            <GridPane.margin>
+                <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+            </GridPane.margin>
+        </Button>
+        <Button fx:id="btn_arcotangente" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onBtnAtan_Clicked" text="atan" GridPane.columnIndex="3" GridPane.rowIndex="6">
+            <GridPane.margin>
+                <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+            </GridPane.margin>
+        </Button>
+        <Button fx:id="btn_ce" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#onBtnCE_Clicked" text="CE" GridPane.columnIndex="0" GridPane.rowIndex="6">
             <GridPane.margin>
                 <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
             </GridPane.margin>
